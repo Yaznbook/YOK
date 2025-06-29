@@ -40,7 +40,8 @@ Link all object files into a kernel binary:
 ```
 ld -m elf_i386 -T linker.ld -nostdlib --entry _start -o kernel.bin \
 main.o yok_kernel.o yok_memory.o yok_process.o yok_thread.o \
-yok_scheduler.o yok_serial.o yok_utils.o multiboot_header.o```
+yok_scheduler.o yok_serial.o yok_utils.o multiboot_header.o
+```
 
 Running YOK Kernel in QEMU
 Launch the kernel using QEMU with serial output redirected to your terminal:
