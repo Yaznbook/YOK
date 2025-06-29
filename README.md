@@ -24,7 +24,7 @@ NASM (for assembling multiboot header, if used)
 Building YOK Kernel
 Compile all C source files and assemble any required assembly files (like multiboot header):
 
-bash
+```
 gcc -m32 -ffreestanding -c main.c -o main.o
 gcc -m32 -ffreestanding -c yok_kernel.c -o yok_kernel.o
 gcc -m32 -ffreestanding -c yok_memory.c -o yok_memory.o
@@ -34,17 +34,21 @@ gcc -m32 -ffreestanding -c yok_scheduler.c -o yok_scheduler.o
 gcc -m32 -ffreestanding -c yok_serial.c -o yok_serial.o
 gcc -m32 -ffreestanding -c yok_utils.c -o yok_utils.o
 gcc -m32 -ffreestanding -c multiboot_header.S -o multiboot_header.o
+```
 Link all object files into a kernel binary:
 
-bash```
+```
 ld -m elf_i386 -T linker.ld -nostdlib --entry _start -o kernel.bin \
 main.o yok_kernel.o yok_memory.o yok_process.o yok_thread.o \
 yok_scheduler.o yok_serial.o yok_utils.o multiboot_header.o```
+
 Running YOK Kernel in QEMU
 Launch the kernel using QEMU with serial output redirected to your terminal:
 
-bash```
-qemu-system-i386 -kernel kernel.bin -serial stdio -no-reboot```
+```
+qemu-system-i386 -kernel kernel.bin -serial stdio -no-reboot
+```
+
 This will start the kernel in an emulator window, and all kernel output will be displayed in your terminal.
 
 About Yaznbook Company
